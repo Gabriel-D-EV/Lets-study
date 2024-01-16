@@ -7,6 +7,7 @@
 
 {% block 'conteudo' %}
 
+
 <div class="bg1">
     <div class="container">
     <div class="row">
@@ -35,8 +36,20 @@
     <div class="circle c2"></div>
     <div class="circle c3"></div>
     </div>
-   <br>
+    <br>
+    {% if messages %}
+
+    {% for message in messages %}
+
+        <section class="alert {{ message.tags }}">
+            {{ message }}
+        </section>
+
+    {% endfor %}
+
+    {% endif %}
    <h3>Cadastre-se</h3>
+   
     <form action="{% url 'cadastro' %}" method="POST">{% csrf_token %}
     
     <input type="text" class="input-form" name="nome" id="" placeholder="Nome:">
