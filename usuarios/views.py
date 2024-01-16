@@ -14,12 +14,12 @@ def cadastro(req):
         
         
         if not senha == c_senha:
-            messages.add_message(req, constants.ERROR, 'Senha e Confirmar senha são diferentes.')
+            messages.add_message(req, constants.ERROR, 'Senha e Confirmar senha não coincidem.')
             return redirect('/usuarios/cadastro')
         
         user = User.objects.filter(username=nome)
         if user.exists():
-            messages.add_message(req, constants.ERROR, 'Nome já existe!!, digite outro nome. ')
+            messages.add_message(req, constants.ERROR, 'Nome já existe!! ')
             return redirect('/usuarios/cadastro')
 
         try:
