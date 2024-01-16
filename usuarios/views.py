@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.messages import constants
 from django.contrib import messages
+from django.contrib import auth
 
 def cadastro(req):
     if req.method == 'GET':
@@ -24,9 +25,27 @@ def cadastro(req):
 
         try:
             User.objects.create_user(username=nome, password=senha)
-            return redirect('/usuarios/login')
+            return redirect('/usuarios/logar')
     
         except:
             messages.add_message(req, constants.ERROR, 'Erro interno do Server.')
             return redirect('/usuarios/cadastro')
         
+        
+def logar(req):
+    if req.method == 'GET':
+        return render(req, 'login.html')
+    elif req.method == 'POST':
+        nome = req.POST.get('nome')
+        senha = req.POST.get('senha')
+        
+        user = auth.authenticate(req)
+        if user.exists():
+            if user[0].check_password(senha):
+                return redirect('/usuarios/home')
+            else:
+                messages.add_message(req, constants.ERROR, 'Senha incorreta!!')
+                return redirect('/usuarios/login')
+        else:
+            messages.add_message(req, constants.ERROR, 'Usuário não encontrado!!')
+            return redirect('/usuarios/login')
