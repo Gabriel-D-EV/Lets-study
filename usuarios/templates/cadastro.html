@@ -1,4 +1,9 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block 'header' %}
+    <link rel="stylesheet" href="{% static 'usuarios/css/cadastro.css' %}">
+{% endblock %}
 
 {% block 'conteudo' %}
 
@@ -8,7 +13,7 @@
     <div class="col-md">
     <div class="box-titulo">
     <div class="box-titulo-item">
-    <img src="">
+    <img src="{% static 'usuarios/imagens/logo1.png' %}">
     </div>
    <div style="margin-top: auto; margin-bottom: auto;" class="box-titulo-item">
     <h3 >Let's Study</h3>
@@ -32,9 +37,9 @@
     </div>
    <br>
    <h3>Cadastre-se</h3>
-    <form action="" method="POST">
+    <form action="{% url 'cadastro' %}" method="POST">{% csrf_token %}
     
-    <input type="text" class="input-form" name="username" id="" placeholder="Nome:">
+    <input type="text" class="input-form" name="nome" id="" placeholder="Nome:">
     <br>
    <br>
    
