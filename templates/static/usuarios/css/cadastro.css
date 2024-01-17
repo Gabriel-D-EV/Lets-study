@@ -12,7 +12,7 @@
    .divisor{
     border: 0;
     height: 1px;
-    background-image: linear-gradient(to right, transparent, rgb(162, 219, 236), transparent);
+    background-color: var(--color-4);
     display: block;
    }
    .img-logo {
@@ -80,4 +80,15 @@
    .btn-cadastro:hover {
     background-color: var(--color-4);
     transform: scale(1.1);
+   }
+
+   .form-control, .form-control:focus {
+    background-color: var(--color-1);
+    border: 2px solid var(--color-3);
+    color: #fff;
+   }
+   .form-select {
+    background-color: var(--color-1);
+    border: 2px solid var(--color-3);
+    color: #fff;
    }
