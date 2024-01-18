@@ -43,9 +43,7 @@ def novo_flashcard(req):
         flashcard.save()
         messages.add_message(req, constants.SUCCESS, "Flashcard cadastrado com sucesso!")
         return redirect('/flashcard/novo_flashcard/')
-    
-    
-    
+        
     
 def delete_flashcard(req, id):
     if not req.user.is_authenticated:
