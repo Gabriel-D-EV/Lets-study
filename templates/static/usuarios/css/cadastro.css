@@ -82,7 +82,7 @@
     transform: scale(1.1);
    }
 
-   .form-control, .form-control:focus {
+   .form-control {
     background-color: var(--color-1);
     border: 2px solid var(--color-3);
     color: #fff;

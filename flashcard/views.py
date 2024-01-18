@@ -48,9 +48,12 @@ def novo_flashcard(req):
     
     
 def delete_flashcard(req, id):
-    card = Flashcard.objects.get(id=id)
-    card.delete()
-    messages.add_message(req, constants.SUCCESS, "Flashcard apagado com sucesso!")
-    return redirect('/flashcard/novo_flashcard/')
+    if not req.user.is_authenticated:
+        return redirect("/usuarios/logar")
+    else:
+        card = Flashcard.objects.get(id=id)
+        card.delete()
+        messages.add_message(req, constants.SUCCESS, "Flashcard apagado com sucesso!")
+        return redirect('/flashcard/novo_flashcard/')
     
     
