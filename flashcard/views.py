@@ -44,3 +44,13 @@ def novo_flashcard(req):
         messages.add_message(req, constants.SUCCESS, "Flashcard cadastrado com sucesso!")
         return redirect('/flashcard/novo_flashcard/')
     
+    
+    
+    
+def delete_flashcard(req, id):
+    card = Flashcard.objects.get(id=id)
+    card.delete()
+    messages.add_message(req, constants.SUCCESS, "Flashcard apagado com sucesso!")
+    return redirect('/flashcard/novo_flashcard/')
+    
+    
