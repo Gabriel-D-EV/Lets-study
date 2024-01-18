@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .models import Categoria, Flashcard, Desafio, FlashcardDesafio
 from django.contrib.messages import constants
 from django.contrib import messages
+from django.http import HttpResponse
+
 
 
 def novo_flashcard(req):
@@ -80,27 +82,32 @@ def iniciar_desafio(req):
             },
         )
 
-    elif req.method=="POST":
-        titulo = req.POST.get('titulo')
-        categorias = req.POST.getlist('categoria')
-        dificuldade = req.POST.get('dificuldade')
-        q_perguntas = req.POST.get('q_perguntas')
-        
+    elif req.method == "POST":
+        titulo = req.POST.get("titulo")
+        categorias = req.POST.getlist("categoria")
+        dificuldade = req.POST.get("dificuldade")
+        q_perguntas = req.POST.get("q_perguntas")
+
         desafio = Desafio(
             user=req.user,
             titulo=titulo,
             q_perguntas=q_perguntas,
-            dificuldade=dificuldade
+            dificuldades=dificuldade
         )
-        
+
         desafio.save()
-        
+
         for categoria in categorias:
             desafio.categoria.add(categoria)
-            
-        flashcard = Flashcard.objects.filter(user=req.user).filter(dificuldade=dificuldade).filter(categoria_id__in=categorias)
-            
-        return 
-            
-            
+
+        flashcards = (
+            Flashcard.objects.filter(user=req.user)
+            .filter(dificuldade=dificuldade)
+            .filter(categoria_id__in=categorias)
+            .order_by('?')
+        )
         
+        print(len(flashcards))
+        #flashcards = flashcards[: int(q_perguntas)]
+
+        return HttpResponse('teste')
