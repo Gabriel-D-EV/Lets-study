@@ -5,7 +5,6 @@ from django.contrib import messages
 from django.http import HttpResponse
 
 
-
 def novo_flashcard(req):
     if not req.user.is_authenticated:
         return redirect("/usuarios/logar")
@@ -92,7 +91,7 @@ def iniciar_desafio(req):
             user=req.user,
             titulo=titulo,
             q_perguntas=q_perguntas,
-            dificuldades=dificuldade
+            dificuldades=dificuldade,
         )
 
         desafio.save()
@@ -104,10 +103,21 @@ def iniciar_desafio(req):
             Flashcard.objects.filter(user=req.user)
             .filter(dificuldade=dificuldade)
             .filter(categoria_id__in=categorias)
-            .order_by('?')
+            .order_by("?")
         )
-        
-        print(len(flashcards))
-        #flashcards = flashcards[: int(q_perguntas)]
 
-        return HttpResponse('teste')
+        if flashcards.count() < int(q_perguntas):
+            return redirect('/flashcard/iniciar_desafio')
+             
+        flashcards = flashcards[: int(q_perguntas)]
+        
+        for f in flashcards:
+            flashcard_desafio = FlashcardDesafio(
+                flashcard=f
+            )
+            flashcard_desafio.save()
+            desafio.flashcard.add(flashcard_desafio)
+            
+        desafio.save()
+
+        return HttpResponse("teste")
