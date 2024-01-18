@@ -22,10 +22,15 @@
           {% endfor %} {% endif %}
           <br />
           <label>Pergunta:</label>
-          <input type="text" class="form-control" name="pergunta" required/>
+          <input type="text" class="form-control" name="pergunta" required />
           <br />
           <label>Resposta:</label>
-          <textarea class="form-control" name="resposta" rows="6" required></textarea>
+          <textarea
+            class="form-control"
+            name="resposta"
+            rows="6"
+            required
+          ></textarea>
           <br />
           <div class="row">
             <div class="col-md">
@@ -54,7 +59,8 @@
       </div>
     </div>
     <div class="col-md">
-      <form action="{% url 'novo_flashcard' %}" method="GET">{% csrf_token %}
+      <form action="{% url 'novo_flashcard' %}" method="GET">
+        {% csrf_token %}
         <div class="row">
           <div class="col-md">
             <label for="">Categoria:</label>
@@ -92,17 +98,19 @@
       <div class="box-new-flashcard" onclick="flip_card({{flash.id}})">
         <div class="flashcard">
           <div class="flashcard-categoria">{{flash.categoria}}</div>
-          <a href="{% url 'delete_flashcard' flash.id %}"><i class="icone-exit bx bx-x-circle"></i></a>
-          <hr>
-          <br />
+          <a href="{% url 'delete_flashcard' flash.id %}"
+            ><i class="icone-exit bx bx-x-circle"></i
+          ></a>
+          <hr />
           <div class="flashcard-box-item">
             <p class="flashcard-item">{{flash.pergunta}}</p>
           </div>
-          <br>
-          <hr>
+          <hr />
         </div>
-        
-        <div class="resposta-flashcard" id="{{flash.id}}">Resposta: {{flash.resposta}}</div>
+
+        <div class="resposta-flashcard" id="{{flash.id}}">
+          Resposta: {{flash.resposta}}
+        </div>
       </div>
       <br />
       <br />

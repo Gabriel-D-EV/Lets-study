@@ -1,0 +1,23 @@
+.fonte-principal{
+ font-weight: bold;
+ font-size: 60px;
+}
+.fonte-secundaria{
+ font-size: 35px;
+}
+.ctx{
+ text-align: center;
+}
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  width: 12px;
+  box-shadow: inset 0 0 0.3rem rgba(0, 0, 0, 0.342);
+  background-color: var(--cor-1);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--cor-4);
+}
