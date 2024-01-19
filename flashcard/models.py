@@ -32,7 +32,7 @@ class Flashcard(models.Model):
 
 class FlashcardDesafio(models.Model):
     flashcard = models.ForeignKey(Flashcard, on_delete=models.DO_NOTHING)
-    respondido = models.BooleanField(default=True)
+    respondido = models.BooleanField(default=False)
     acertou = models.BooleanField(default=False)
 
     def __str__(self):

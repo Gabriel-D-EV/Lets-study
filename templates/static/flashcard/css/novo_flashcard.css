@@ -18,13 +18,13 @@
   cursor: pointer;
 }
 .flashcard-facil {
-  border-left: 20px solid green;
+  border-left: 15px groove green;
 }
 .flashcard-medio {
-  border-left: 20px solid yellow;
+  border-left: 15px groove yellow;
 }
 .flashcard-dificil {
-  border-left: 20px solid red;
+  border-left: 15px groove red;
 }
 .flashcard-categoria {
   background-color: var(--color-1);

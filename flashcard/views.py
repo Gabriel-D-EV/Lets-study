@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Categoria, Flashcard, Desafio, FlashcardDesafio
 from django.contrib.messages import constants
 from django.contrib import messages
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 
 
 def novo_flashcard(req):
@@ -59,7 +59,7 @@ def novo_flashcard(req):
 
 
 def delete_flashcard(req, id):
-    if not req.user.is_authenticated:
+    if not flashcard.id == req.user:
         return redirect("/usuarios/logar")
     else:
         card = Flashcard.objects.get(id=id)
@@ -149,14 +149,24 @@ def listar_desafio(req):
     )
 
 def desafio(req, id):
+    
     desafio = Desafio.objects.get(id=id)
     
+    if not desafio.user == req.user:
+        raise Http404()
+    
     if req.method=="GET":
+        acertos = desafio.flashcard.filter(respondido=True).filter(acertou=True).count()
+        erros = desafio.flashcard.filter(respondido=True).filter(acertou=False).count()
+        faltantes = desafio.flashcard.filter(respondido=False).count()
         return render(
             req,
             'desafio.html',
             {
-                'desafio': desafio
+                'desafio': desafio,
+                'acertos': acertos,
+                'erros': erros,
+                'faltantes': faltantes
             }
         )
 
