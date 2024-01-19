@@ -1,0 +1,45 @@
+<nav
+  style="background-color: var(--color-2)"
+  class="navbar navbar-expand-lg navbar-dark"
+>
+  <a class="navbar-brand" href="{% url 'login' %}">&nbsp&nbspLet's Study</a>
+  
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Flashcard
+        </a>
+        <ul style="background-color: var(--color-2)" class="dropdown-menu text-white" aria-labelledby="navbarDropdown">
+          <li>
+            <a class="dropdown-item text-white" href="{% url 'novo_flashcard' %}"
+              >Criar flashcard</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item text-white" href="{% url 'iniciar_desafio' %}"
+              >Iniciar desafio</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item text-white" href="{% url 'listar_desafio' %}"
+              >Listar desafio</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="">Apostilas</a>
+      </li>
+      
+      
+    </ul>
+  </div>
+</nav>

@@ -5,7 +5,7 @@
   rel="stylesheet"
 />
 <link href="{% static 'flashcard/css/novo_flashcard.css' %}" rel="stylesheet" />
-{% endblock 'header' %} {% block 'conteudo' %}
+{% endblock 'header' %} {% block 'conteudo' %} {% include "partials/header.html" %}
 <div class="container">
   <br />
   <br />
@@ -95,17 +95,16 @@
       <br />
 
       {% for flash in flashcards %}
-      <div class="box-new-flashcard ">
-        <div class="flashcard {{flash.flashcard.css_dif}}">
+      <div class="box-new-flashcard">
+        <div class="flashcard {{flash.css_dif}}">
           <div class="flashcard-categoria">{{flash.categoria}}</div>
           <a href="{% url 'delete_flashcard' flash.id %}"
             ><i class="icone-exit bx bx-x-circle"></i
           ></a>
-          <hr>
-          <div class="flashcard-box-item"  onclick="flip_card({{flash.id}})">
+          <br />
+          <div class="flashcard-box-item" onclick="flip_card({{flash.id}})">
             <p class="flashcard-item">{{flash.pergunta}}</p>
           </div>
-          
         </div>
 
         <div class="resposta-flashcard" id="{{flash.id}}">

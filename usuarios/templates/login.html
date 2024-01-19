@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% load static %} {% block 'header' %}
 <link href="{% static 'usuarios/css/cadastro.css' %}" rel="stylesheet" />
-{% endblock %} {% block 'conteudo' %}
+{% endblock %} {% block 'conteudo' %} {% include "partials/header.html" %}
 <div class="bg1">
   <div class="container">
     <div class="row">

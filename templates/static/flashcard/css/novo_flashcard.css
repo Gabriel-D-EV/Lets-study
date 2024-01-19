@@ -16,15 +16,16 @@
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
+  padding-top: 20px;
 }
 .flashcard-facil {
-  border-left: 15px groove green;
+  border-left: 15px double green;
 }
 .flashcard-medio {
-  border-left: 15px groove yellow;
+  border-left: 15px double yellow;
 }
 .flashcard-dificil {
-  border-left: 15px groove red;
+  border-left: 15px double red;
 }
 .flashcard-categoria {
   background-color: var(--color-1);

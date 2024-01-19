@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+
+
 from .models import Categoria, Flashcard, Desafio, FlashcardDesafio
 from django.contrib.messages import constants
 from django.contrib import messages
@@ -59,13 +61,14 @@ def novo_flashcard(req):
 
 
 def delete_flashcard(req, id):
-    if not flashcard.id == req.user:
-        return redirect("/usuarios/logar")
-    else:
-        card = Flashcard.objects.get(id=id)
-        card.delete()
-        messages.add_message(req, constants.SUCCESS, "Flashcard apagado com sucesso!")
-        return redirect("/flashcard/novo_flashcard/")
+   
+    card = Flashcard.objects.get(id=id)
+    if not card.user == req.user:
+        raise Http404()
+    card.delete()
+    messages.add_message(req, constants.SUCCESS, "Flashcard apagado com sucesso!")
+    return redirect("/flashcard/novo_flashcard/")
+       
 
 
 def iniciar_desafio(req):
@@ -169,4 +172,25 @@ def desafio(req, id):
                 'faltantes': faltantes
             }
         )
+
+def responder_flashcard(req, id):
+    flashcard_desafio = FlashcardDesafio.objects.get(id=id)
+    acertou = req.GET.get('acertou')
+    flashcard_desafio.respondido = True
+    desafio_id = req.GET.get('desafio_id')
+    '''
+    if basico
+    if acertou == "1":
+        flashcard_desafio.acertou = True
+    elif acertou == "0":
+        flashcard_desafio.acertou = False'''
+        
+    #if avancado
+    
+    if not flashcard_desafio.flashcard.user == req.user:
+        raise Http404
+    
+    flashcard_desafio.acertou = True if acertou == "1" else False
+    flashcard_desafio.save()
+    return redirect(f"/flashcard/desafio/{desafio_id}")
 

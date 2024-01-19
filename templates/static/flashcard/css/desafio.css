@@ -28,7 +28,6 @@ badge-categoria{
 }
 .btn-desafio{
  width: 100% !important;
- color: black;
  text-decoration: none;
  display: block;
  text-align: center;
@@ -60,3 +59,12 @@ td, th{
     color: var(--color-3);
 }
 
+.box-res {
+    background-color: var(--color-1);
+    padding: 10px 50px;
+    border-radius: 20px;
+}
+.box-res h3 {
+    text-align: center;
+    padding-bottom: 20px;
+}
