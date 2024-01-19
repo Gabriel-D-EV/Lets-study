@@ -22,7 +22,7 @@ class Flashcard(models.Model):
 
 class FlashcardDesafio(models.Model):
     flashcard = models.ForeignKey(Flashcard, on_delete=models.DO_NOTHING)
-    respondido = models.BooleanField(default=False)
+    respondido = models.BooleanField(default=True)
     acertou = models.BooleanField(default=False)
     
     def __str__(self):
@@ -41,3 +41,5 @@ class Desafio(models.Model):
     
     def __str__(self):
         return self.titulo
+    
+    

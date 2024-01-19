@@ -1,0 +1,62 @@
+* {
+    color: #fff;
+}
+
+badge-categoria{
+ padding: 5px;
+ background-color: var(--color-2);
+ 
+}
+.box-new-flashcard{
+ margin: 0;
+ background-color: var(--color-1);
+ border-radius: 20px;
+}
+.icone-vermelho{
+ color:red;
+ font-size: 30px;
+}
+.icone-verde{
+ color:green;
+ font-size: 30px;
+}
+.op2{
+ opacity: .3;
+}
+.fonte-p{
+ font-size: 25px;
+}
+.btn-desafio{
+ width: 100% !important;
+ color: black;
+ text-decoration: none;
+ display: block;
+ text-align: center;
+ font-size: 25px;
+}
+.box-listar{
+ 
+ background-color: var(--color-1);
+ padding: 20px;
+ border-radius: 20px;
+}
+table{
+ width: 100%;
+ padding: 20px;
+ text-align: center;
+}
+.linha{
+ height: 40px;
+ background-color: var(--color-1);
+ padding: 20px;
+ border-radius: 0;
+}
+td, th{
+ padding: 20px;
+}
+
+.linha a {
+    text-decoration: none;
+    color: var(--color-3);
+}
+

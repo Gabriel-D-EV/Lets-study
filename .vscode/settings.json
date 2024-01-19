@@ -1,5 +1,6 @@
 {
   "cSpell.words": ["cadastro", "hrxa", "mundo", "usuarios"],
   "editor.formatOnSave": true,
-  "html.format.indentHandlebars": true
+  "html.format.indentHandlebars": true,
+  "cSpell.language": "en,pt-BR"
 }

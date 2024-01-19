@@ -107,17 +107,56 @@ def iniciar_desafio(req):
         )
 
         if flashcards.count() < int(q_perguntas):
-            return redirect('/flashcard/iniciar_desafio')
-             
+            return redirect("/flashcard/iniciar_desafio")
+
         flashcards = flashcards[: int(q_perguntas)]
-        
+
         for f in flashcards:
-            flashcard_desafio = FlashcardDesafio(
-                flashcard=f
-            )
+            flashcard_desafio = FlashcardDesafio(flashcard=f)
             flashcard_desafio.save()
             desafio.flashcard.add(flashcard_desafio)
-            
+
         desafio.save()
 
-        return HttpResponse("teste")
+        return redirect('/flashcard/listar_desafio')
+
+
+def listar_desafio(req):
+    desafios = Desafio.objects.filter(user=req.user)
+    status = FlashcardDesafio.respondido
+
+    dificuldades = Flashcard.DIFICULDADE_CHOICES
+    categoria = Categoria.objects.all()
+
+    categoria_filter = req.GET.get("categoria")
+    dificuldade_filter = req.GET.get("dificuldade")
+
+    if categoria_filter:
+        flashcards = flashcards.filter(categoria__id=categoria_filter)
+
+    if dificuldade_filter:
+        flashcards = flashcards.filter(dificuldade=dificuldade_filter)
+
+    return render(
+        req,
+        "listar_desafio.html",
+        {
+            "desafios": desafios,
+            "categorias": categoria,
+            "dificuldades": dificuldades,
+            "status": status
+        },
+    )
+
+def desafio(req, id):
+    desafio = Desafio.objects.get(id=id)
+    
+    if req.method=="GET":
+        return render(
+            req,
+            'desafio.html',
+            {
+                'desafio': desafio
+            }
+        )
+
