@@ -25,7 +25,7 @@
       <br />
       {% for flash in desafio.flashcard.all %}
       <div class="box-new-flashcard">
-        <div class="flashcard">
+        <div class="flashcard {{flash.flashcard.css_dif}}">
           <div class="flashcard-categoria">{{flash.flashcard.categoria}}</div>
           <br />
           <br />
@@ -56,5 +56,5 @@
     </div>
   </div>
 </div>
-<script src="{% static 'flashcard/js/flashcard.js' %}"></script>
+<script src="{% static 'flashcard/js/index.js' %}"></script>
 {% endblock 'conteudo' %}

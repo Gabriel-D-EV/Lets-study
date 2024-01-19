@@ -95,17 +95,17 @@
       <br />
 
       {% for flash in flashcards %}
-      <div class="box-new-flashcard" onclick="flip_card({{flash.id}})">
-        <div class="flashcard">
+      <div class="box-new-flashcard ">
+        <div class="flashcard {{flash.flashcard.css_dif}}">
           <div class="flashcard-categoria">{{flash.categoria}}</div>
           <a href="{% url 'delete_flashcard' flash.id %}"
             ><i class="icone-exit bx bx-x-circle"></i
           ></a>
-          <hr />
-          <div class="flashcard-box-item">
+          <hr>
+          <div class="flashcard-box-item"  onclick="flip_card({{flash.id}})">
             <p class="flashcard-item">{{flash.pergunta}}</p>
           </div>
-          <hr />
+          
         </div>
 
         <div class="resposta-flashcard" id="{{flash.id}}">

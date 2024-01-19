@@ -1,15 +1,16 @@
 .box-new-flashcard {
   width: 70%;
   margin: auto;
-
+  
 }
 .flashcard {
   background-color: var(--color-1);
-  padding: 5px;
+  padding: 20px;
   border-radius: 0 20px 0 0;
 }
 .flashcard-box-item {
   text-align: center;
+  
 }
 .flashcard p {
   font-size: 20px;
