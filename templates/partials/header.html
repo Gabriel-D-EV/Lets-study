@@ -1,8 +1,9 @@
+ {% load static %}
 <nav
   style="background-color: var(--color-2)"
   class="navbar navbar-expand-lg navbar-dark"
 >
-  <a class="navbar-brand" href="{% url 'login' %}">&nbsp&nbspLet's Study</a>
+  <a class="navbar-brand" href="{% url 'login' %}">&nbsp&nbsp <img class="logo-img-nav" src="{% static 'usuarios/imagens/logo-ls-ico.png' %}"/></a>
   
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">

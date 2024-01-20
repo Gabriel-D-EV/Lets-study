@@ -16,8 +16,8 @@
   display: block;
 }
 .img-logo {
-  width: 480px;
-  height: 300px;
+  width: 550px;
+  height: 550px;
 }
 .tac {
   text-align: center;
@@ -106,4 +106,7 @@
   background-color: var(--cor-4);
 }
 
-
+.logo-img-nav {
+  height: 50px;
+  width: 50px;
+}
