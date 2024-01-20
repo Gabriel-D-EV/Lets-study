@@ -7,3 +7,5 @@ function flip_card(id) {
     card.style.display = "none";
   }
 }
+
+

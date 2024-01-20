@@ -19,24 +19,24 @@
         </a>
         <ul style="background-color: var(--color-2)" class="dropdown-menu text-white" aria-labelledby="navbarDropdown">
           <li>
-            <a class="dropdown-item text-white" href="{% url 'novo_flashcard' %}"
+            <a class="dropdown-item text-black" href="{% url 'novo_flashcard' %}"
               >Criar flashcard</a
             >
           </li>
           <li>
-            <a class="dropdown-item text-white" href="{% url 'iniciar_desafio' %}"
+            <a class="dropdown-item text-black" href="{% url 'iniciar_desafio' %}"
               >Iniciar desafio</a
             >
           </li>
           <li>
-            <a class="dropdown-item text-white" href="{% url 'listar_desafio' %}"
+            <a class="dropdown-item text-black" href="{% url 'listar_desafio' %}"
               >Listar desafio</a
             >
           </li>
         </ul>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="">Apostilas</a>
+        <a class="nav-link" href="{% url 'add_apostila' %}">Apostilas</a>
       </li>
       
       

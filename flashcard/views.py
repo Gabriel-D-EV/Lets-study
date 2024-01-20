@@ -70,7 +70,6 @@ def delete_flashcard(req, id):
     return redirect("/flashcard/novo_flashcard/")
        
 
-
 def iniciar_desafio(req):
     if req.method == "GET":
         categoria = Categoria.objects.all()
@@ -151,6 +150,7 @@ def listar_desafio(req):
         },
     )
 
+
 def desafio(req, id):
     
     desafio = Desafio.objects.get(id=id)
@@ -173,6 +173,7 @@ def desafio(req, id):
             }
         )
 
+
 def responder_flashcard(req, id):
     flashcard_desafio = FlashcardDesafio.objects.get(id=id)
     acertou = req.GET.get('acertou')
@@ -194,3 +195,22 @@ def responder_flashcard(req, id):
     flashcard_desafio.save()
     return redirect(f"/flashcard/desafio/{desafio_id}")
 
+
+def relatorio(req, id):
+    desafio = Desafio.objects.get(id=id)
+    acertos = desafio.flashcard.filter(acertou=True).count()
+    erros = desafio.flashcard.filter(acertou=False).count()
+    dados = [acertos, erros]
+    
+    
+    categorias = desafio.categoria.all()
+    labels = []
+    for i in categorias:
+        labels.append(i.nome)
+        
+    dados2 = []
+    for categoria in categorias:
+        dados2.append(desafio.flashcard.filter(flashcard__categoria=categoria).filter(acertou=True).count())
+        
+    
+    return render(req, 'relatorio.html', {'desafio': desafio, 'dados': dados, 'labels': labels, 'dados2': dados2})
