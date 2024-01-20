@@ -55,6 +55,5 @@ def sair(req):
     auth.logout(req)
     return redirect('/usuarios/logar/')       
         
-        
-        
+
         
