@@ -42,6 +42,11 @@
         <br>
         <br>
         <div class="box-listar">
+            {% if messages %}
+            <br />
+            {% for message in messages %}
+                <section class="alert {{message.tags}}">{{message}}</section>
+            {% endfor %} {% endif %}
             <table>
                 <thead>
                     <tr class="header" >
@@ -59,7 +64,8 @@
                             <th><a href="{% url 'desafio' desafio.id %}">{{desafio.id}}</a></th>
                             <td>{{desafio.titulo}}</td>
                             <td>{{desafio.get_dificuldades_display}}</td>
-                            <td>{{f}}</td>
+                            <td>{{status}}</td>
+                            <td><a href="{% url 'deletar_desafio' desafio.id %}"><i class="icone-exit bx bx-x-circle"></i></a></td>
                         </tr>
                     {% endfor %}
                 </tbody>

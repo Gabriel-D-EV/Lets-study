@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-
+from django.core.exceptions import ObjectDoesNotExist
 from .models import Categoria, Flashcard, Desafio, FlashcardDesafio
 from django.contrib.messages import constants
 from django.contrib import messages
@@ -125,8 +125,9 @@ def iniciar_desafio(req):
 
 def listar_desafio(req):
     desafios = Desafio.objects.filter(user=req.user)
-    status = FlashcardDesafio.respondido
-
+    flashcard_desafio = FlashcardDesafio.objects.all()
+    
+    
     dificuldades = Flashcard.DIFICULDADE_CHOICES
     categoria = Categoria.objects.all()
 
@@ -146,10 +147,25 @@ def listar_desafio(req):
             "desafios": desafios,
             "categorias": categoria,
             "dificuldades": dificuldades,
-            "status": status
+            
         },
     )
 
+
+def deletar_desafio(req, id):
+    try:
+        desafio = FlashcardDesafio.objects.get(id=id)
+        print(desafio)
+    except ObjectDoesNotExist:
+        messages.add_message(req, constants.ERROR, "Desafio não encontrado!")
+        return redirect('/flashcard/listar_desafio')
+
+    if not desafio.user == req.user:
+        raise Http404()
+    print(desafio)
+    desafio.delete()
+    messages.add_message(req, constants.SUCCESS, "Desafio apagado com sucesso!")
+    return redirect('/flashcard/listar_desafio')
 
 def desafio(req, id):
     
