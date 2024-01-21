@@ -19,9 +19,9 @@
     <div class="col-md">
       <h3 class="fonte-secundaria">Desafio iniciado:</h3>
       <hr />
-      arumar essa parte
-      <span class="badge-categoria">Programação</span>
-      <span class="badge-categoria">Matemática</span>
+      {% for cat in desafio.flashcard.flashcard %}
+        <div>{{cat.categoria}}</div>
+      {% endfor %}
       <br />
       <br />
       <br />
