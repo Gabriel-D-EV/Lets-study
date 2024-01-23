@@ -123,9 +123,11 @@ def iniciar_desafio(req):
         return redirect('/flashcard/listar_desafio')
 
 
-def listar_desafio(req):
+def listar_desafio(req,):
+    
     desafios = Desafio.objects.filter(user=req.user)
-    flashcard_desafio = FlashcardDesafio.objects.all()
+    status = desafios.count()
+  
     
     
     dificuldades = Flashcard.DIFICULDADE_CHOICES
@@ -147,7 +149,7 @@ def listar_desafio(req):
             "desafios": desafios,
             "categorias": categoria,
             "dificuldades": dificuldades,
-            
+            "status": status
         },
     )
 
