@@ -85,7 +85,7 @@ DATABASES = {
         'NAME': 'lets_study',
         'USER': 'admin',
         'PASSWORD': 'MuUL3B18sKTcak4lUuEU9aFLeGuHowA0',
-        'HOST': 'dpg-cmqiruug1b2c73d6bm20-a/lets_study',
+        'HOST': 'dpg-cmqiruug1b2c73d6bm20-a.oregon-postgres.render.com/lets_study',
         'PORT': '5432',
     }
 }
