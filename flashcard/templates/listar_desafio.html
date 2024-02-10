@@ -64,12 +64,7 @@
                             <th><a href="{% url 'desafio' desafio.id %}">{{desafio.id}}</a></th>
                             <td>{{desafio.titulo}}</td>
                             <td>{{desafio.get_dificuldades_display}}</td>
-    
-                                {% if not status %}
-                                    <td><span class="badge text-bg-info">Falta Responder</span></td>
-                                {% else %}
-                                    <td><span class="badge text-bg-success">Respondido</span></td>
-                                {% endif %}
+                            <td>{{desafio.status}}</td>
                         </tr>
                     {% endfor %}
                 </tbody>

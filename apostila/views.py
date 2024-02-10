@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from . models import Apostila, ViewApostila
+from . models import Apostila, ViewApostila, Tags
 from django.contrib.messages import constants
 from django.contrib import messages
 
@@ -18,10 +18,23 @@ def add_apostila(req):
         apostila = Apostila(
             user=req.user,
             titulo=titulo,
-            arquivo=arquivo
+            arquivo=arquivo,
+           
         )
+        apostila.save()
+        tags = req.POST.get('tags')
+        list_tags = tags.split(',')
+        
+        for tag in list_tags:
+            nova_tag = Tags(
+                nome=tag
+            )
+            nova_tag.save()
+            apostila.tags.add(nova_tag)
+            
         
         apostila.save()
+        
         messages.add_message(req, constants.SUCCESS, message='Salvo com sucesso!')
         return redirect('/apostila/add_apostila')
         

@@ -40,8 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'usuarios',
     'flashcard',
-    'apostila',
-    'app'
+    'apostila'
     
 ]
 
