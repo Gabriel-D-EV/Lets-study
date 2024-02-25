@@ -22,7 +22,7 @@
           {% endfor %} {% endif %}
           <br />
           <label>Pergunta:</label>
-          <input type="text" class="form-control" name="pergunta" required />
+          <input type="text" class="form-control" name="pergunta" required autocomplete="off" />
           <br />
           <label>Resposta:</label>
           <textarea
@@ -30,6 +30,7 @@
             name="resposta"
             rows="6"
             required
+            autocomplete="off"
           ></textarea>
           <br />
           <div class="row">

@@ -1,7 +1,6 @@
 .box-new-flashcard {
   width: 70%;
   margin: auto;
-  
 }
 .flashcard {
   background-color: var(--color-1);
@@ -10,7 +9,6 @@
 }
 .flashcard-box-item {
   text-align: center;
-  
 }
 .flashcard p {
   font-size: 20px;
@@ -38,7 +36,6 @@
   display: none;
   border-radius: 0 0 20px 0;
   font-weight: bold;
-  
 }
 .icone-exit {
   float: right;
@@ -55,4 +52,17 @@
   border: 2px solid var(--color-3);
   color: #fff;
 }
-
+input::after,
+textarea::after,
+input::before,
+textarea::before,
+input:focus,
+textarea:focus,
+input::selection,
+textarea::selection,
+input:hover,
+textarea:hover {
+  background-color: var(--color-1);
+  border: 2px solid var(--color-3);
+  color: #fff;
+}

@@ -1,12 +1,12 @@
-.fonte-principal{
- font-weight: bold;
- font-size: 60px;
+.fonte-principal {
+  font-weight: bold;
+  font-size: 60px;
 }
-.fonte-secundaria{
- font-size: 35px;
+.fonte-secundaria {
+  font-size: 35px;
 }
-.ctx{
- text-align: center;
+.ctx {
+  text-align: center;
 }
 *::-webkit-scrollbar {
   width: 10px;
@@ -20,4 +20,18 @@
 
 *::-webkit-scrollbar-thumb {
   background-color: var(--cor-4);
+}
+input::after,
+textarea::after,
+input::before,
+textarea::before,
+input:focus,
+textarea:focus,
+input::selection,
+textarea::selection,
+input:hover,
+textarea:hover {
+  background-color: var(--color-1);
+  border: 2px solid var(--color-3);
+  color: #fff;
 }

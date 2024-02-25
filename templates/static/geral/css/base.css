@@ -11,4 +11,18 @@
     background-color: var(--color-0);
     color: white 
    }
+   input::after,
+   textarea::after,
+   input::before,
+   textarea::before,
+   input:focus,
+   textarea:focus,
+   input::selection,
+   textarea::selection,
+   input:hover,
+   textarea:hover {
+    background-color: var(--color-1);
+    border: 2px solid var(--color-3);
+    color: #fff;
+  }
 

@@ -1,70 +1,83 @@
 * {
-    color: #fff;
+  color: #fff;
 }
 
-badge-categoria{
- padding: 5px;
- background-color: var(--color-2);
- 
+badge-categoria {
+  padding: 5px;
+  background-color: var(--color-2);
 }
-.box-new-flashcard{
- margin: 0;
- background-color: var(--color-1);
- border-radius: 20px;
+.box-new-flashcard {
+  margin: 0;
+  background-color: var(--color-1);
+  border-radius: 20px;
 }
-.icone-vermelho{
- color:red;
- font-size: 30px;
+.icone-vermelho {
+  color: red;
+  font-size: 30px;
 }
-.icone-verde{
- color:green;
- font-size: 30px;
+.icone-verde {
+  color: green;
+  font-size: 30px;
 }
-.op2{
- opacity: .3;
+.op2 {
+  opacity: 0.3;
 }
-.fonte-p{
- font-size: 25px;
+.fonte-p {
+  font-size: 25px;
 }
-.btn-desafio{
- width: 100% !important;
- text-decoration: none;
- display: block;
- text-align: center;
- font-size: 25px;
+.btn-desafio {
+  width: 100% !important;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  font-size: 25px;
 }
-.box-listar{
- 
- background-color: var(--color-1);
- padding: 20px;
- border-radius: 20px;
+.box-listar {
+  background-color: var(--color-1);
+  padding: 20px;
+  border-radius: 20px;
 }
-table{
- width: 100%;
- padding: 20px;
- text-align: center;
+table {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
 }
-.linha{
- height: 40px;
- background-color: var(--color-1);
- padding: 20px;
- border-radius: 0;
+.linha {
+  height: 40px;
+  background-color: var(--color-1);
+  padding: 20px;
+  border-radius: 0;
 }
-td, th{
- padding: 20px;
+td,
+th {
+  padding: 20px;
 }
 
 .linha a {
-    text-decoration: none;
-    color: var(--color-3);
+  text-decoration: none;
+  color: var(--color-3);
 }
 
 .box-res {
-    background-color: var(--color-1);
-    padding: 10px 50px;
-    border-radius: 20px;
+  background-color: var(--color-1);
+  padding: 10px 50px;
+  border-radius: 20px;
 }
 .box-res h3 {
-    text-align: center;
-    padding-bottom: 20px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+input::after,
+textarea::after,
+input::before,
+textarea::before,
+input:focus,
+textarea:focus,
+input::selection,
+textarea::selection,
+input:hover,
+textarea:hover {
+  background-color: var(--color-1);
+  border: 2px solid var(--color-3);
+  color: #fff;
 }

@@ -17,7 +17,7 @@
         <div class="col-md">
             <form action="{% url 'iniciar_desafio' %}" method="POST">{% csrf_token%}
             <label for="">Titulo</label>
-            <input type="text" class="form-control " name="titulo" required>
+            <input type="text" class="form-control " name="titulo" required autocomplete="off">
         </div>
         <div class="col-md">
             <label>Categoria:</label>
@@ -41,7 +41,7 @@
         </div>
         <div class="col-md">
             <label>Quantas questões:</label>
-            <input type="number" class="form-control" required name="q_perguntas">
+            <input type="number" class="form-control" required name="q_perguntas" autocomplete="off">
         </div>
  
     </div>
