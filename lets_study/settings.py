@@ -77,17 +77,19 @@ WSGI_APPLICATION = 'lets_study.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
-'''DATABASES = {
+'''
+DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'lets_study',
-        'USER': 'postgres',
-        'PASSWORD': '051518',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    },
-}'''
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'lets_study',  # Nome do banco de dados
+        'USER': 'admin',  # Nome de usuário
+        'PASSWORD': 'MuUL3B18sKTcak4lUuEU9aFLeGuHowA0',  # Senha
+        'HOST': 'dpg-cmqiruug1b2c73d6bm20-a',  # Endereço do servidor
+        'PORT': '5432',  # Porta (deixe em branco para usar a padrão)
+    }
+}
+
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',

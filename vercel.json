@@ -1,0 +1,30 @@
+{
+    "versão": 2,
+    "construi": [
+      {
+        "frc": "backend/wsgi.py",
+        "usar": "@vercel/python",
+        "config": {
+          "maxLambdaSize": "15mb",
+          "tempo de execução": "python3.9"
+        }
+      },
+      {
+        "frc": "build.sh",
+        "usar": "@vercel/static-build",
+        "config": {
+          "distDir": "staticfiles_build"
+        }
+      }
+    ],
+    "rotas": [
+      {
+        "frc": "/static/(.*)",
+        "dest": "/static/$1"
+      },
+      {
+        "frc": "/(.*)",
+        "dest": "backend/wsgi.py"
+      }
+    ]
+  }
